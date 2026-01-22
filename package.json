@@ -1,6 +1,6 @@
 {
   "name": "pr-video",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Generate demo videos for GitHub Pull Requests",
   "type": "module",
   "main": "src/index.ts",
@@ -9,8 +9,7 @@
   },
   "files": [
     "src",
-    "bin",
-    "public"
+    "bin"
   ],
   "scripts": {
     "dev": "tsx src/index.ts",
@@ -28,7 +27,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/pr-video"
+    "url": "https://github.com/Rahat-ch/pr-video"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0",

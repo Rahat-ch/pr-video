@@ -101,7 +101,7 @@ program
   .argument('[demo-url]', 'URL to record (optional - skip for backend-only PRs)')
   .argument('[additional-urls...]', 'Additional pages to navigate to')
   .option('-o, --output <path>', 'Output path for video', './pr-demo.mp4')
-  .option('--duration <ms>', 'Recording duration in ms', '15000')
+  .option('--duration <seconds>', 'Recording duration in seconds', '15')
   .option('--anthropic-key <key>', 'Anthropic API key')
   .option('--github-token <token>', 'GitHub token (required for private repos)')
   .action(async (prUrl: string, demoUrl: string | undefined, additionalUrls: string[], opts) => {
@@ -137,7 +137,7 @@ program
         await recordPreview({
           url: demoUrl,
           outputPath: recordingPath,
-          duration: parseInt(opts.duration),
+          duration: parseInt(opts.duration) * 1000,
           pages: additionalUrls,
         })
         console.log(`   Recording saved`)
@@ -165,14 +165,14 @@ program
   .description('Record a screen capture only')
   .argument('<url>', 'URL to record')
   .option('-o, --output <path>', 'Output path', './recording.webm')
-  .option('--duration <ms>', 'Recording duration in ms', '10000')
+  .option('--duration <seconds>', 'Recording duration in seconds', '10')
   .action(async (url: string, opts) => {
     try {
       console.log(`📹 Recording ${url}...`)
       await recordPreview({
         url,
         outputPath: path.resolve(opts.output),
-        duration: parseInt(opts.duration),
+        duration: parseInt(opts.duration) * 1000,
       })
       console.log(`✅ Saved to: ${opts.output}`)
     } catch (error) {
