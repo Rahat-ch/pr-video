@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Test files
+*.mp4
+*.webm
+recording.*
+
+# Public folder (generated at runtime)
+public/
+
+# OS files
+.DS_Store
+
+# Environment
+.env
+.env.local
+
+# Logs
+*.log
+
+# IDE
+.idea/
+.vscode/
